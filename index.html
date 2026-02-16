@@ -27,6 +27,20 @@
           );
           yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
         });
+      </script>
+     <h3>Carbon footprint</h3>
+<p id="carbonValue">Loading...</p>
+  <script>
+fetch("emissions.json")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("carbonValue").innerText =
+      data.emissions + " kg CO₂";
+  })
+  .catch(() => {
+    document.getElementById("carbonValue").innerText =
+      "Could not load carbon data";
+  });
     </script>
   </body>
 </html>
